@@ -2,7 +2,9 @@
 
 A CLI tool for generating beautiful blog posts based on markdown documents
 
-<img src="./img/example.png" height="500px" width="500px" />
+<img src="./img/example.png" height="500px" width="500px" alt="example generated techrocks document" />
+<br>
+<a href="https://techrocks.frrt.space">Image Source</a>
 
 ## usage
 
