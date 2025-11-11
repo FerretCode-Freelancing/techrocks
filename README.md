@@ -9,7 +9,7 @@ A CLI tool for generating beautiful blog posts based on markdown documents
 ## usage
 
 ```
-./techrocks -input post.md -output output.html -template template.html
+./techrocks -markdown post.md -output output.html -template template.html
 ```
 
 It may also be used with these default values:
@@ -17,6 +17,9 @@ It may also be used with these default values:
 -   input=post.md
 -   template=template.html
 -   output=output.html
+-   port=8080
+
+Additionally, you can also watch and live reload the generated blog file by appending the `-watch` and `-serve` flags. The default URL is located at `http://localhost:8080`
 
 Usage like:
 
