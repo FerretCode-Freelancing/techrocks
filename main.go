@@ -14,6 +14,8 @@ import (
 	"github.com/fsnotify/fsnotify"
 	"github.com/gorilla/websocket"
 	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark-highlighting/v2"
+	"github.com/yuin/goldmark/extension"
 )
 
 type PageData struct {
@@ -292,7 +294,18 @@ func buildDocument(markdownDocument *string, templateFile *string, outputFile *s
 	}
 
 	var buf bytes.Buffer
-	if err := goldmark.Convert(markdownContent, &buf); err != nil {
+
+	md := goldmark.New(
+		goldmark.WithExtensions(
+			extension.GFM,
+			highlighting.NewHighlighting(
+				highlighting.WithStyle("monokai"),
+				highlighting.WithFormatOptions(),
+			),
+		),
+	)
+
+	if err := md.Convert(markdownContent, &buf); err != nil {
 		logger.Error("error converting markdown into html", "err", err)
 		return err
 	}
